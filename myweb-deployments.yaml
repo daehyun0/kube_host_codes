@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myweb-deployment
+  labels:
+    app: myweb-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: myweb-deployment
+  template:
+    metadata:
+      labels:
+        app: myweb-deployment
+    spec:
+      containers:
+        - name: myweb-deployment
+          image: dd702/tomcat-myweb
+          ports:
+            - containerPort: 80
